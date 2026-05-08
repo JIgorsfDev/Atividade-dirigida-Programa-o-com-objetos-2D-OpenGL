@@ -13,7 +13,7 @@ g2 = 0
 b2 = 0
 
 
-def rd_cor():
+def rd_cor(): #função do CAOS! é nela que os valores da randomização ocorrem
     global r1, g1, b1, r2, g2, b2
     r1 = rd.random()
     g1 = rd.random()
@@ -23,11 +23,11 @@ def rd_cor():
     b2 = rd.random()
 
 
-def teclado(tecla, x, y):
-    if tecla == b" ":
+def teclado(tecla, x, y): #função que captura o teclado
+    if tecla == b" ": #random
         rd_cor()
         glut.glutPostRedisplay()
-    elif tecla == b'\x1b':
+    elif tecla == b'\x1b': #botão de sair do código
         glut.glutDestroyWindow(glut.glutGetWindow())
         sys.exit(0)
 
@@ -42,7 +42,7 @@ while True:
     print("Valores inválidos! Tente novamente.\n")
 
 
-def draw_flat():
+def draw_flat(): #retângulo de cor única
     gl.glClearColor(r2, g2, b2, 1.0)
 
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
@@ -58,7 +58,7 @@ def draw_flat():
     gl.glFlush()
 
 
-def draw_smooth():
+def draw_smooth(): #retângulo de cor misturada
     gl.glClearColor(r2, g2, b2, 1.0)
 
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
