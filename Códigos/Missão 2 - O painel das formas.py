@@ -11,71 +11,76 @@ r = rd.random()
 g = rd.random()
 b = rd.random()
 
+
 def cor():
     global r, g, b
     r = rd.random()
     g = rd.random()
     b = rd.random()
 
+
 def teclado(tecla, x, y):
-    if tecla == b'\x1b':
+    if tecla == b"\x1b":
         glut.glutDestroyWindow(glut.glutGetWindow())
         sys.exit(0)
+
 
 def circulo(x, y, radiano, nseg=100):
     gl.glBegin(gl.GL_TRIANGLE_FAN)
     gl.glVertex2f(x, y)
-    
+
     for i in range(nseg + 1):
         ang = 2 * math.pi * i / nseg
         gl.glVertex2f(x + math.cos(ang) * radiano, y + math.sin(ang) * radiano)
 
     gl.glEnd()
 
-#falta corrigir os pontos
+
 def display():
-  gl.glClearColor(1.0, 1.0, 1.0, 1.0)
-  gl.glClear(gl.GL_COLOR_BUFFER_BIT)
-  gl.glShadeModel(gl.GL_FLAT)
-    
-  circulo(-0.5, 0.5, 0.2)
+    gl.glClearColor(1.0, 1.0, 1.0, 1.0)
+    gl.glClear(gl.GL_COLOR_BUFFER_BIT)
+    gl.glShadeModel(gl.GL_FLAT)
 
-  cor()
+    cor()
 
-  gl.glBegin(gl.GL_QUADS)
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(0.3, 0.3)
-  gl.glVertex2f(0.3, 0.7)
-  gl.glVertex2f(0.7, 0.7)
-  gl.glVertex2f(0.7, 0.3)
-  gl.glEnd()
-  gl.glFlush()
+    circulo(0.025, 0.5, 0.2)
 
-  cor()
+    cor()
 
-  gl.glBegin(gl.GL_TRIANGLES)
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(-0.3, -0.3)
-  gl.glVertex2f(-0.3, -0.5)
-  gl.glVertex2f(-0.5, 0.3)
-  gl.glEnd()
-  gl.glFlush()
+    gl.glBegin(gl.GL_QUADS)
+    gl.glColor3f(r, g, b)
+    gl.glVertex2f(0.3, 0.7)
+    gl.glVertex2f(0.7, 0.7)
+    gl.glVertex2f(0.7, 0.3)
+    gl.glVertex2f(0.3, 0.3)
+    gl.glEnd()
 
-  cor()
+    cor()
 
-  gl.glBegin(gl.GL_POLYGON) #octogono
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(0.7, 0.4)
-  gl.glVertex2f(0.7, 0.3)
-  gl.glVertex2f(0.8, 0.2)
-  gl.glVertex2f(0.9, 0.2)
-  gl.glVertex2f(1, 0.3)
-  gl.glVertex2f(1, 0.4)
-  gl.glVertex2f(0.9, 0.5)
-  gl.glVertex2f(0.8, 0.5)
-  gl.glEnd()
-  gl.glFlush()
-  
+    gl.glBegin(gl.GL_TRIANGLES)
+    gl.glColor3f(r, g, b)
+    gl.glVertex2f(-0.2, -0.2) #base direita
+    gl.glVertex2f(0.05, 0.2) #topo
+    gl.glVertex2f(0.3, -0.2) #base esquerda
+    gl.glEnd()
+
+    cor()
+
+    gl.glBegin(gl.GL_POLYGON)  # octogono -> se der tempo, "devo puxar ele mais pra perto do triângulo"
+    gl.glColor3f(r, g, b)
+    gl.glVertex2f(0.6, 0.2)
+    gl.glVertex2f(0.5, 0.1)
+    gl.glVertex2f(0.5, -0.1)
+    gl.glVertex2f(0.6, -0.2)
+    gl.glVertex2f(0.8, -0.2)
+    gl.glVertex2f(0.9, -0.1)
+    gl.glVertex2f(0.9, 0.1)
+    gl.glVertex2f(0.8, 0.2)
+    gl.glEnd()
+
+    gl.glFlush()
+
+
 glut.glutInit()
 glut.glutInitDisplayMode(0)
 glut.glutCreateWindow("O painel das formas")
