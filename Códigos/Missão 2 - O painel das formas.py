@@ -25,13 +25,13 @@ def teclado(tecla, x, y):
         sys.exit(0)
 
 
-def circulo(x, y, radiano, nseg=100):
+def circulo(x, y, r, nseg=100):
     gl.glBegin(gl.GL_TRIANGLE_FAN)
     gl.glVertex2f(x, y)
 
     for i in range(nseg + 1):
         ang = 2 * math.pi * i / nseg
-        gl.glVertex2f(x + math.cos(ang) * radiano, y + math.sin(ang) * radiano)
+        gl.glVertex2f(x + math.cos(ang) * r, y + math.sin(ang) * r)
 
     gl.glEnd()
 
