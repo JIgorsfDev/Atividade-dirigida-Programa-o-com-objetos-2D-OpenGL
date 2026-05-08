@@ -24,7 +24,8 @@ for i in range(5):
 
 def teclado(tecla, x, y):
     if tecla == b'\x1b':
-        sys.exit()
+        glut.glutDestroyWindow(glut.glutGetWindow())
+        sys.exit(0)
 
 
 def cor():
