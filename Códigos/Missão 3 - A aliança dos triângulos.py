@@ -12,11 +12,11 @@ b = 0
 
 triangulos = []
 
-for i in range(5):
+for i in range(5): #for que garante os 5 triângulos
     bs = float(input("Digite a base do triângulo (entre -1 e 1): "))
     h = float(input("Digite a altura do triângulo (entre -1 e 1): "))
 
-    x = rd.uniform(-1, 1 - bs)
+    x = rd.uniform(-1, 1 - bs) #atribui pontos aleatórios dentro do intervalo
     y = rd.uniform(-1, 1 - h)
 
     triangulos.append((bs, h, x, y))
@@ -35,13 +35,13 @@ def cor():
     b = rd.random()
 
 
-def draw_triangles(bs, h, x, y):
-    gl.glBegin(gl.GL_TRIANGLES)
+def draw_triangles(bs, h, x, y): 
+    gl.glBegin(gl.GL_TRIANGLES) 
     cor()
     gl.glColor3f(r, g, b)
     gl.glVertex2f(x, y)
-    gl.glVertex2f(x + bs, y)
-    gl.glVertex2f(x + bs / 2, y + h)
+    gl.glVertex2f(x + bs, y) # anda a largura da base no eixo X
+    gl.glVertex2f(x + bs / 2, y + h) # meio da base + altura do triangulo
     gl.glEnd()
 
 
