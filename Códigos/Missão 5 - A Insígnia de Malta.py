@@ -26,7 +26,7 @@ def rd_cor():
   g = rd.random()
   b = rd.random()
 
-def desenharInsignia():
+def desenharInsignia(): #montados via geogebra
   gl.glBegin(gl.GL_TRIANGLES)
   gl.glColor3f(r, g, b)
 
