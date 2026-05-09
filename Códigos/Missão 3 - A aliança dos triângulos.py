@@ -50,7 +50,7 @@ def draw():
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     for i in triangulos:
-        bs, h, x, y = i
+        bs, h, x, y = i #pega os valores guardados na lista
         draw_triangles(bs, h, x, y)
 
     gl.glFlush()
