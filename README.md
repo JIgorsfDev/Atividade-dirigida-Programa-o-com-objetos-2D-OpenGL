@@ -1,6 +1,6 @@
 # Atividade dirigida: OpenGL 2D em Python
 
-## 🌌 Um novo começo
+## 🌌 A Ameaça Bidimensional
 
 Por seleção do imperador **Néc-io**, você foi escolhido para integrar a **Ordem dos Guardiões Gráficos**, uma sociedade ancestral responsável por proteger o equilíbrio visual do universo digital.
 Para provar seu valor, será necessário completar uma série de desafios utilizando **OpenGL 2D**. Cada missão desenvolverá habilidades de manipulação gráfica, lógica espacial e criatividade computacional.
